@@ -1,0 +1,161 @@
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ rostopic list -v
+
+Published topics:
+ * /rosout_agg [rosgraph_msgs/Log] 1 publisher
+ * /rosout [rosgraph_msgs/Log] 2 publishers
+ * /turtle1/pose [turtlesim/Pose] 1 publisher
+ * /turtle1/color_sensor [turtlesim/Color] 1 publisher
+ * /turtle1/cmd_vel [geometry_msgs/Twist] 1 publisher
+
+Subscribed topics:
+ * /rosout [rosgraph_msgs/Log] 1 subscriber
+ * /turtle1/cmd_vel [geometry_msgs/Twist] 1 subscriber
+
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ mkdir ~/bagfiles
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ cd ~/bagfiles
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/bagfiles$ rosbag record -a
+[ INFO] [1650728968.437088355]: Recording to '2022-04-23-23-49-28.bag'.
+[ INFO] [1650728968.437938511]: Subscribing to /rosout_agg
+[ INFO] [1650728968.439786821]: Subscribing to /rosout
+[ INFO] [1650728968.441106911]: Subscribing to /turtle1/pose
+[ INFO] [1650728968.442467560]: Subscribing to /turtle1/color_sensor
+[ INFO] [1650728968.443792737]: Subscribing to /turtle1/cmd_vel
+    
+
+
+
+[ INFO] [1650730168.446695315]: Subscribing to /clock
+^Cdx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/bagfiles$ rosrun turtlesim turtlesim_node 
+[ INFO] [1650730236.335636207]: Starting turtlesim with node name /turtlesim
+[ INFO] [1650730236.339182657]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ rosrun turtlesim turtle_teleop_
+[rosrun] Couldn't find executable named turtle_teleop_ below /opt/ros/noetic/share/turtlesim
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ rosbag record -O subset /turtle1/cmd_vel /turtle1/pose
+[ INFO] [1650730357.076628792]: Subscribing to /turtle1/cmd_vel
+[ INFO] [1650730357.078897563]: Subscribing to /turtle1/pose
+[ INFO] [1650730357.081102222]: Recording to 'subset.bag'.
+^Cdx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ rosbag info subset.bag
+path:        subset.bag
+version:     2.0
+duration:    8.7s
+start:       Apr 24 2022 00:12:37.32 (1650730357.32)
+end:         Apr 24 2022 00:12:46.05 (1650730366.05)
+size:        81.7 KB
+messages:    1001
+compression: none [1/1 chunks]
+types:       turtlesim/Pose [863b248d5016ca62ea2e895ae5265cf9]
+topics:      /turtle1/pose   1001 msgs    : turtlesim/Pose (2 connections)
+
+[RUNNING]  Bag Time: 1650729891.302619   Duration: 39.597168 / 196.684377      [RUNNING]  Bag Time: 1650729891.302698   Duration: 39.597247 / 196.684377      [RUNNING]  Bag Time: 1650729891.318878   Duration: 39.613427 / 196.684377      [RUNNING]  Bag Time: 1650729891.334264   Duration: 39.628813 / 196.684377      [RUNNING]  Bag Time: 1650729891.350421   Duration: 39.644971 / 196.684377      [RUNNING]  Bag Time: 1650729891.366697   Duration: 39.661247 / 196.684377      [RUNNING]  Bag Time: 1650729891.382130   Duration: 39.676679 / 196.684377      [RUNNING]  Bag Time: 1650729891.398426   Duration: 39.692975 / 196.684377      [RUNNING]  Bag Time: 1650729891.414754   Duration: 39.709304 / 196.684377      [RUNNING]  Bag Time: 1650729891.430842   Duration: 39.725392 / 196.684377      [RUNNING]  Bag Time: 1650729891.446229   Duration: 39.740778 / 196.684377      [RUNNING]  Bag Time: 1650729891.462371   Duration: 39.756921 / 196.684377      [RUNNING]  Bag Time: 1650729891.478833   Duration: 39.773383 / 196.684377      [RUNNING]  Bag Time: 1650729891.493928   Duration: 39.788477 / 196.684377      [RUNNING]  Bag Time: 1650729891.510326   Duration: 39.804876 / 196.684377      [RUNNING]  Bag Time: 1650729891.526598   Duration: 39.821147 / 196.684377      [RUNNING]  Bag Time: 1650729891.542786   Duration: 39.837335 / 196.684377      [RUNNING]  Bag Time: 1650729891.557956   Duration: 39.852506 / 196.684377      [RUNNING]  Bag Time: 1650729891.574689   Duration: 39.869239 / 196.684377      [RUNNING]  Bag Time: 1650729891.590586   Duration: 39.885136 / 196.684377      [RUNNING]  Bag Time: 1650729891.606880   Duration: 39.901430 / 196.684377      [RUNNING]  Bag Time: 1650729891.622223   Duration: 39.916772 / 196.684377      [RUNNING]  Bag Time: 1650729891.638515   Duration: 39.933064 / 196.684377      [RUNNING]  Bag Time: 1650729891.654714   Duration: 39.949264 / 196.684377      [RUNNING]  Bag Time: 1650729891.670151   Duration: 39.964701 / 196.684377      [RUNNING]  Bag Time: 1650729891.686327   Duration: 39.980876 / 196.684377      [RUNNING]  Bag Time: 1650729891.702700   Duration: 39.997250 / 196.684377      [RUNNING]  Bag Time: 1650729891.717968   Duration: 40.012518 / 196.684377      [RUNNING]  Bag Time: 1650729891.734415   Duration: 40.028964 / 196.684377      [RUNNING]  Bag Time: 1650729891.750616   Duration: 40.045165 / 196.684377      [RUNNING]  Bag Time: 1650729891.766865   Duration: 40.061415 / 196.684377      [RUNNING]  Bag Time: 1650729891.782123   Duration: 40.076672 / 196.684377      [RUNNING]  Bag Time: 1650729891.798460   Duration: 40.093009 / 196.684377      [RUNNING]  Bag Time: 1650729891.814778   Duration: 40.109327 / 196.684377      [RUNNING]  Bag Time: 1650729891.829864   Duration: 40.124413 / 196.684377      [RUNNING]  Bag Time: 1650729891.846192   Duration: 40.140742 / 196.684377      [RUNNING]  Bag Time: 1650729891.862566   Duration: 40.157115 / 196.684377      [RUNNING]  Bag Time: 1650729891.878694   Duration: 40.173243 / 196.684377      [RUNNING]  Bag Time: 1650729891.894294   Duration: 40.188843 / 196.684377      [RUNNING]  Bag Time: 1650729891.910301   Duration: 40.204851 / 196.684377      [RUNNING]  Bag Time: 1650729891.926670   Duration: 40.221219 / 196.684377      [RUNNING]  Bag Time: 1650729891.942895   Duration: 40.237445 / 196.684377      [RUNNING]  Bag Time: 1650729891.958179   Duration: 40.252729 / 196.684377      [RUNNING]  Bag Time: 1650729891.974689   Duration: 40.269239 / 196.684377      [RUNNING]  Bag Time: 1650729891.990667   Duration: 40.285216 / 196.684377      [RUNNING]  Bag Time: 1650729892.005968   Duration: 40.300518 / 196.684377      [RUNNING]  Bag Time: 1650729892.022368   Duration: 40.316918 / 196.684377      [RUNNING]  Bag Time: 1650729892.038710   Duration: 40.333260 / 196.684377      [RUNNING]  Bag Time: 1650729892.053869   Duration: 40.348419 / 196.684377      [RUNNING]  Bag Time: 1650729892.070318   Duration: 40.364867 / 196.684377      [RUNNING]  Bag Time: 1650729892.086743   Duration: 40.381293 / 196.684377      [RUNNING]  Bag Time: 1650729892.102701   Duration: 40.397251 / 196.684377      [RUNNING]  Bag Time: 1650729892.118098   Duration: 40.412647 / 196.684377      [RUNNING]  Bag Time: 1650729892.134303   Duration: 40.428852 / 196.684377      [RUNNING]  Bag Time: 1650729892.150694   Duration: 40.445243 / 196.684377      [RUNNING]  Bag Time: 1650729892.166073   Duration: 40.460623 / 196.684377      [RUNNING]  Bag Time: 1650729892.182468   Duration: 40.477017 / 196.684377      [RUNNING]  Bag Time: 1650729892.198544   Duration: 40.493093 / 196.684377      [RUNNING]  Bag Time: 1650729892.214665   Duration: 40.509215 / 196.684377      [RUNNING]  Bag Time: 1650729892.230121   Duration: 40.524671 / 196.684377      [RUNNING]  Bag Time: 1650729892.246340   Duration: 40.540889 / 196.684377      [RUNNING]  Bag Time: 1650729892.262539   Duration: 40.557088 / 196.684377      [RUNNING]  Bag Time: 1650729892.278799   Duration: 40.573348 / 196.684377      [RUNNING]  Bag Time: 1650729892.294092   Duration: 40.588641 / 196.684377      [RUNNING]  Bag Time: 1650729892.310181   Duration: 40.604730 / 196.684377      [RUNNING]  Bag Time: 1650729892.326611   Duration: 40.621160 / 196.684377      [RUNNING]  Bag Time: 1650729892.342742   Duration: 40.637291 / 196.684377      [RUNNING]  Bag Time: 1650729892.357978   Duration: 40.652527 / 196.684377      [RUNNING]  Bag Time: 1650729892.374282   Duration: 40.668831 / 196.684377      [RUNNING]  Bag Time: 1650729892.390690   Duration: 40.685240 / 196.684377      [RUNNING]  Bag Time: 1650729892.406863   Duration: 40.701412 / 196.684377      [RUNNING]  Bag Time: 1650729892.422194   Duration: 40.716744 / 196.684377      [RUNNING]  Bag Time: 1650729892.438437   Duration: 40.732987 / 196.684377      [RUNNING]  Bag Time: 1650729892.454731   Duration: 40.749281 / 196.684377      [RUNNING]  Bag Time: 1650729892.469851   Duration: 40.764400 / 196.684377      [RUNNING]  Bag Time: 1650729892.486201   Duration: 40.780750 / 196.684377      [RUNNING]  Bag Time: 1650729892.502381   Duration: 40.796931 / 196.684377      [RUNNING]  Bag Time: 1650729892.518766   Duration: 40.813316 / 196.684377      [RUNNING]  Bag Time: 1650729892.533891   Duration: 40.828441 / 196.684377      [RUNNING]  Bag Time: 1650729892.550240   Duration: 40.844789 / 196.684377      [RUNNING]  Bag Time: 1650729892.566458   Duration: 40.861007 / 196.684377      [RUNNING]  Bag Time: 1650729892.582748   Duration: 40.877297 / 196.684377      [RUNNING]  Bag Time: 1650729892.598083   Duration: 40.892632 / 196.684377      [RUNNING]  Bag Time: 1650729892.614325   Duration: 40.908875 / 196.684377      [RUNNING]  Bag Time: 1650729892.630581   Duration: 40.925131 / 196.684377      [RUNNING]  Bag Time: 1650729892.646957   Duration: 40.941507 / 196.684377      [RUNNING]  Bag Time: 1650729892.662075   Duration: 40.956624 / 196.684377      [RUNNING]  Bag Time: 1650729892.678368   Duration: 40.972918 / 196.684377      [RUNNING]  Bag Time: 1650729892.694567   Duration: 40.989117 / 196.684377      [RUNNING]  Bag Time: 1650729892.710819   Duration: 41.005368 / 196.684377      [RUNNING]  Bag Time: 1650729892.726086   Duration: 41.020636 / 196.684377      [RUNNING]  Bag Time: 1650729892.742144   Duration: 41.036693 / 196.684377      [RUNNING]  Bag Time: 1650729892.758323   Duration: 41.052872 / 196.684377      [RUNNING]  Bag Time: 1650729892.774522   Duration: 41.069072 / 196.684377      [RUNNING]  Bag Time: 1650729892.790732   Duration: 41.085281 / 196.684377      [RUNNING]  Bag Time: 1650729892.805921   Duration: 41.100470 / 196.684377      [RUNNING]  Bag Time: 1650729892.822239   Duration: 41.116788 / 196.684377      [RUNNING]  Bag Time: 1650729892.838505   Duration: 41.133054 / 196.684377      [RUNNING]  Bag Time: 1650729892.854581   Duration: 41.149130 / 196.684377      [RUNNING]  Bag Time: 1650729892.870803   Duration: 41.165353 / 196.684377      [RUNNING]  Bag Time: 1650729892.886183   Duration: 41.180732 / 196.684377      [RUNNING]  Bag Time: 1650729892.902534   Duration: 41.197083 / 196.684377      [RUNNING]  Bag Time: 1650729892.918705   Duration: 41.213255 / 196.684377      [RUNNING]  Bag Time: 1650729892.933887   Duration: 41.228436 / 196.684377      [RUNNING]  Bag Time: 1650729892.950109   Duration: 41.244658 / 196.684377      [RUNNING]  Bag Time: 1650729892.966227   Duration: 41.260776 / 196.684377      [RUNNING]  Bag Time: 1650729892.982721   Duration: 41.277271 / 196.684377      [RUNNING]  Bag Time: 1650729892.997955   Duration: 41.292505 / 196.684377      [RUNNING]  Bag Time: 1650729893.014138   Duration: 41.308688 / 196.684377      [RUNNING]  Bag Time: 1650729893.030307   Duration: 41.324856 / 196.684377      [RUNNING]  Bag Time: 1650729893.046606   Duration: 41.341155 / 196.684377      [RUNNING]  Bag Time: 1650729893.062854   Duration: 41.357403 / 196.684377      [RUNNING]  Bag Time: 1650729893.077976   Duration: 41.372525 / 196.684377      [RUNNING]  Bag Time: 1650729893.094348   Duration: 41.388897 / 196.684377      [RUNNING]  Bag Time: 1650729893.110461   Duration: 41.405011 / 196.684377      [RUNNING]  Bag Time: 1650729893.126772   Duration: 41.421321 / 196.684377      [RUNNING]  Bag Time: 1650729893.142148   Duration: 41.436697 / 196.684377      [RUNNING]  Bag Time: 1650729893.158530   Duration: 41.453080 / 196.684377      [RUNNING]  Bag Time: 1650729893.174681   Duration: 41.469230 / 196.684377      [RUNNING]  Bag Time: 1650729893.189987   Duration: 41.484537 / 196.684377      [RUNNING]  Bag Time: 1650729893.206298   Duration: 41.500848 / 196.684377      [RUNNING]  Bag Time: 1650729893.222651   Duration: 41.517201 / 196.684377      [RUNNING]  Bag Time: 1650729893.237886   Duration: 41.532435 / 196.684377      [RUNNING]  Bag Time: 1650729893.254151   Duration: 41.548701 / 196.684377      [RUNNING]  Bag Time: 1650729893.270400   Duration: 41.564949 / 196.684377      [RUNNING]  Bag Time: 1650729893.286724   Duration: 41.581274 / 196.684377      [RUNNING]  Bag Time: 1650729893.301872   Duration: 41.596421 / 196.684377      [RUNNING]  Bag Time: 1650729893.318630   Duration: 41.613179 / 196.684377      [RUNNING]  Bag Time: 1650729893.334012   Duration: 41.628561 / 196.684377      [RUNNING]  Bag Time: 1650729893.350126   Duration: 41.644676 / 196.684377      [RUNNING]  Bag Time: 1650729893.366287   Duration: 41.660837 / 196.684377      [RUNNING]  Bag Time: 1650729893.382469   Duration: 41.677019 / 196.684377      [RUNNING]  Bag Time: 1650729893.397924   Duration: 41.692473 / 196.684377      [RUNNING]  Bag Time: 1650729893.414253   Duration: 41.708802 / 196.684377      [RUNNING]  Bag Time: 1650729893.430600   Duration: 41.725150 / 196.684377      [RUNNING]  Bag Time: 1650729893.446614   Duration: 41.741164 / 196.684377      [RUNNING]  Bag Time: 1650729893.461878   Duration: 41.756427 / 196.684377      [RUNNING]  Bag Time: 1650729893.478152   Duration: 41.772701 / 196.684377      [RUNNING]  Bag Time: 1650729893.494419   Duration: 41.788969 / 196.684377      [RUNNING]  Bag Time: 1650729893.510575   Duration: 41.805125 / 196.684377      [RUNNING]  Bag Time: 1650729893.526835   Duration: 41.821385 / 196.684377      [RUNNING]  Bag Time: 1650729893.541931   Duration: 41.836481 / 196.684377      [RUNNING]  Bag Time: 1650729893.558104   Duration: 41.852654 / 196.684377      [RUNNING]  Bag Time: 1650729893.574183   Duration: 41.868732 / 196.684377      [RUNNING]  Bag Time: 1650729893.590449   Duration: 41.884999 / 196.684377      [RUNNING]  Bag Time: 1650729893.606613   Duration: 41.901162 / 196.684377      [RUNNING]  Bag Time: 1650729893.621875   Duration: 41.916424 / 196.684377      [RUNNING]  Bag Time: 1650729893.638195   Duration: 41.932745 / 196.684377      [RUNNING]  Bag Time: 1650729893.654428   Duration: 41.948977 / 196.684377      [RUNNING]  Bag Time: 1650729893.670594   Duration: 41.965143 / 196.684377      [RUNNING]  Bag Time: 1650729893.686728   Duration: 41.981277 / 196.684377      [RUNNING]  Bag Time: 1650729893.702122   Duration: 41.996672 / 196.684377      [RUNNING]  Bag Time: 1650729893.718343   Duration: 42.012893 / 196.684377      [RUNNING]  Bag Time: 1650729893.734540   Duration: 42.029090 / 196.684377      [RUNNING]  Bag Time: 1650729893.750753   Duration: 42.045303 / 196.684377      [RUNNING]  Bag Time: 1650729893.766048   Duration: 42.060598 / 196.684377      [RUNNING]  Bag Time: 1650729893.782202   Duration: 42.076751 / 196.684377      [RUNNING]  Bag Time: 1650729893.798533   Duration: 42.093083 / 196.684377      [RUNNING]  Bag Time: 1650729893.814431   Duration: 42.108981 / 196.684377      [RUNNING]  Bag Time: 1650729893.830632   Duration: 42.125181 / 196.684377      [RUNNING]  Bag Time: 1650729893.845762   Duration: 42.140312 / 196.684377      [RUNNING]  Bag Time: 1650729893.861967   Duration: 42.156516 / 196.684377      [RUNNING]  Bag Time: 1650729893.878120   Duration: 42.172669 / 196.684377      [RUNNING]  Bag Time: 1650729893.894203   Duration: 42.188752 / 196.684377      [RUNNING]  Bag Time: 1650729893.910575   Duration: 42.205124 / 196.684377      [RUNNING]  Bag Time: 1650729893.926695   Duration: 42.221244 / 196.684377      [RUNNING]  Bag Time: 1650729893.941719   Duration: 42.236268 / 196.684377      [RUNNING]  Bag Time: 1650729893.957833   Duration: 42.252382 / 196.684377      [RUNNING]  Bag Time: 1650729893.974220   Duration: 42.268770 / 196.684377      [RUNNING]  Bag Time: 1650729893.990366   Duration: 42.284916 / 196.684377      [RUNNING]  Bag Time: 1650729894.006619   Duration: 42.301168 / 196.684377      [RUNNING]  Bag Time: 1650729894.021914   Duration: 42.316464 / 196.684377      [RUNNING]  Bag Time: 1650729894.038322   Duration: 42.332872 / 196.684377      [RUNNING]  Bag Time: 1650729894.054666   Duration: 42.349215 / 196.684377      [RUNNING]  Bag Time: 1650729894.070791   Duration: 42.365341 / 196.684377      [RUNNING]  Bag Time: 1650729894.086125   Duration: 42.380675 / 196.684377      [RUNNING]  Bag Time: 1650729894.102294   Duration: 42.396844 / 196.684377      [RUNNING]  Bag Time: 1650729894.118454   Duration: 42.413004 / 196.684377      [RUNNING]  Bag Time: 1650729894.118712   Duration: 42.413262 / 196.684377      [RUNNING]  Bag Time: 1650729894.134770   Duration: 42.429320 / 196.684377      [RUNNING]  Bag Time: 1650729894.149751   Duration: 42.444301 / 196.684377      [RUNNING]  Bag Time: 1650729894.165908   Duration: 42.460457 / 196.684377      [RUNNING]  Bag Time: 1650729894.182046   Duration: 42.476596 / 196.684377      [RUNNING]  Bag Time: 1650729894.198106   Duration: 42.492656 / 196.684377      [RUNNING]  Bag Time: 1650729894.214262   Duration: 42.508812 / 196.684377      [RUNNING]  Bag Time: 1650729894.230494   Duration: 42.525043 / 196.684377      [RUNNING]  Bag Time: 1650729894.246879   Duration: 42.541428 / 196.684377      [RUNNING]  Bag Time: 1650729894.261711   Duration: 42.556261 / 196.684377      [RUNNING]  Bag Time: 1650729894.277820   Duration: 42.572369 / 196.684377      [RUNNING]  Bag Time: 1650729894.294154   Duration: 42.588704 / 196.684377      [RUNNING]  Bag Time: 1650729894.310320   Duration: 42.604870 / 196.684377      [RUNNING]  Bag Time: 1650729894.326566   Duration: 42.621115 / 196.684377      [RUNNING]  Bag Time: 1650729894.342807   Duration: 42.637356 / 196.684377      [RUNNING]  Bag Time: 1650729894.358100   Duration: 42.652650 / 196.684377      [RUNNING]  Bag Time: 1650729894.374227   Duration: 42.668777 / 196.684377      [RUNNING]  Bag Time: 1650729894.390467   Duration: 42.685017 / 196.684377      [RUNNING]  Bag Time: 1650729894.406602   Duration: 42.701152 / 196.684377      [RUNNING]  Bag Time: 1650729894.422807   Duration: 42.717357 / 196.684377      [RUNNING]  Bag Time: 1650729894.438044   Duration: 42.732593 / 196.684377      [RUNNING]  Bag Time: 1650729894.454385   Duration: 42.748934 / 196.684377      [RUNNING]  Bag Time: 1650729894.470500   Duration: 42.765049 / 196.684377      [RUNNING]  Bag Time: 1650729894.486738   Duration: 42.781288 / 196.684377      [RUNNING]  Bag Time: 1650729894.502012   Duration: 42.796561 / 196.684377      [RUNNING]  Bag Time: 1650729894.518198   Duration: 42.812747 / 196.684377      [RUNNING]  Bag Time: 1650729894.534461   Duration: 42.829010 / 196.684377      [RUNNING]  Bag Time: 1650729894.550645   Duration: 42.845195 / 196.684377      [RUNNING]  Bag Time: 1650729894.566112   Duration: 42.860661 / 196.684377      [RUNNING]  Bag Time: 1650729894.582097   Duration: 42.876647 / 196.684377      [RUNNING]  Bag Time: 1650729894.598354   Duration: 42.892903 / 196.684377      [RUNNING]  Bag Time: 1650729894.614546   Duration: 42.909096 / 196.684377      [RUNNING]  Bag Time: 1650729894.630845   Duration: 42.925394 / 196.684377      [RUNNING]  Bag Time: 1650729894.645880   Duration: 42.940429 / 196.684377      [RUNNING]  Bag Time: 1650729894.661882   Duration: 42.956432 / 196.684377      [RUNNING]  Bag Time: 1650729894.678255   Duration: 42.972805 / 196.684377      [RUNNING]  Bag Time: 1650729894.694543   Duration: 42.989092 / 196.684377      [RUNNING]  Bag Time: 1650729894.710829   Duration: 43.005378 / 196.684377      [RUNNING]  Bag Time: 1650729894.726351   Duration: 43.020900 / 196.684377      [RUNNING]  Bag Time: 1650729894.742521   Duration: 43.037071 / 196.684377      [RUNNING]  Bag Time: 1650729894.758816   Duration: 43.053365 / 196.684377      [RUNNING]  Bag Time: 1650729894.774594   Duration: 43.069143 / 196.684377      [RUNNING]  Bag Time: 1650729894.790769   Duration: 43.085318 / 196.684377      [RUNNING]  Bag Time: 1650729894.806032   Duration: 43.100581 / 196.684377      [RUNNING]  Bag Time: 1650729894.822358   Duration: 43.116908 / 196.684377      [RUNNING]  Bag Time: 1650729894.838605   Duration: 43.133154 / 196.684377      [RUNNING]  Bag Time: 1650729894.854697   Duration: 43.149247 / 196.684377      [RUNNING]  Bag Time: 1650729894.870141   Duration: 43.164690 / 196.684377      [RUNNING]  Bag Time: 1650729894.886123   Duration: 43.180673 / 196.684377      [RUNNING]  Bag Time: 1650729894.902327   Duration: 43.196877 / 196.684377      [RUNNING]  Bag Time: 1650729894.902399   Duration: 43.196948 / 196.684377      [RUNNING]  Bag Time: 1650729894.918992   Duration: 43.213541 / 196.684377      [RUNNING]  Bag Time: 1650729894.934502   Duration: 43.229051 / 196.684377      [RUNNING]  Bag Time: 1650729894.949604   Duration: 43.244153 / 196.684377      [RUNNING]  Bag Time: 1650729894.965780   Duration: 43.260330 / 196.684377      [RUNNING]  Bag Time: 1650729894.981850   Duration: 43.276400 / 196.684377      [RUNNING]  Bag Time: 1650729894.997988   Duration: 43.292538 / 196.684377      [RUNNING]  Bag Time: 1650729895.014159   Duration: 43.308708 / 196.684377      [RUNNING]  Bag Time: 1650729895.030282   Duration: 43.324832 / 196.684377      [RUNNING]  Bag Time: 1650729895.046363   Duration: 43.340912 / 196.684377      [RUNNING]  Bag Time: 1650729895.062505   Duration: 43.357055 / 196.684377      [RUNNING]  Bag Time: 1650729895.077579   Duration: 43.372129 / 196.684377      [RUNNING]  Bag Time: 1650729895.093689   Duration: 43.388238 / 196.684377      [RUNNING]  Bag Time: 1650729895.109849   Duration: 43.404399 / 196.684377      [RUNNING]  Bag Time: 1650729895.126013   Duration: 43.420562 / 196.684377      [RUNNING]  Bag Time: 1650729895.142108   Duration: 43.436658 / 196.684377      [RUNNING]  Bag Time: 1650729895.158437   Duration: 43.452987 / 196.684377      [RUNNING]  Bag Time: 1650729895.174361   Duration: 43.468911 / 196.684377      [RUNNING]  Bag Time: 1650729895.190474   Duration: 43.485023 / 196.684377      [RUNNING]  Bag Time: 1650729895.205539   Duration: 43.500089 / 196.684377      [RUNNING]  Bag Time: 1650729895.221670   Duration: 43.516219 / 196.684377      [RUNNING]  Bag Time: 1650729895.237826   Duration: 43.532376 / 196.684377      [RUNNING]  Bag Time: 1650729895.253892   Duration: 43.548441 / 196.684377      [RUNNING]  Bag Time: 1650729895.270067   Duration: 43.564617 / 196.684377      [RUNNING]  Bag Time: 1650729895.286343   Duration: 43.580892 / 196.684377      [RUNNING]  Bag Time: 1650729895.302416   Duration: 43.596966 / 196.684377      [RUNNING]  Bag Time: 1650729895.318438   Duration: 43.612988 / 196.684377      [RUNNING]  Bag Time: 1650729895.333443   Duration: 43.627992 / 196.684377      [RUNNING]  Bag Time: 1650729895.349731   Duration: 43.644281 / 196.684377      [RUNNING]  Bag Time: 1650729895.365734   Duration: 43.660284 / 196.684377      [RUNNING]  Bag Time: 1650729895.381855   Duration: 43.676404 / 196.684377      [RUNNING]  Bag Time: 1650729895.398251   Duration: 43.692800 / 196.684377      [RUNNING]  Bag Time: 1650729895.414215   Duration: 43.708765 / 196.684377      [RUNNING]  Bag Time: 1650729895.430350   Duration: 43.724900 / 196.684377      [RUNNING]  Bag Time: 1650729895.446452   Duration: 43.741002 / 196.684377      [RUNNING]  Bag Time: 1650729895.461531   Duration: 43.756080 / 196.684377      [RUNNING]  Bag Time: 1650729895.477664   Duration: 43.772214 / 196.684377      [RUNNING]  Bag Time: 1650729895.493844   Duration: 43.788394 / 196.684377      [RUNNING]  Bag Time: 1650729895.509971   Duration: 43.804520 / 196.684377      [RUNNING]  Bag Time: 1650729895.526178   Duration: 43.820727 / 196.684377      [RUNNING]  Bag Time: 1650729895.542376   Duration: 43.836926 / 196.684377      [RUNNING]  Bag Time: 1650729895.558789   Duration: 43.853339 / 196.684377      [RUNNING]  Bag Time: 1650729895.574251   Duration: 43.868801 / 196.684377      [RUNNING]  Bag Time: 1650729895.590198   Duration: 43.884748 / 196.684377      [RUNNING]  Bag Time: 1650729895.606503   Duration: 43.901053 / 196.684377      [RUNNING]  Bag Time: 1650729895.622549   Duration: 43.917098 / 196.684377      [RUNNING]  Bag Time: 1650729895.638441   Duration: 43.932991 / 196.684377      [RUNNING]  Bag Time: 1650729895.653685   Duration: 43.948234 / 196.684377      [RUNNING]  Bag Time: 1650729895.669720   Duration: 43.964269 / 196.684377      [RUNNING]  Bag Time: 1650729895.685861   Duration: 43.980410 / 196.684377      [RUNNING]  Bag Time: 1650729895.702028   Duration: 43.996577 / 196.684377      [RUNNING]  Bag Time: 1650729895.718246   Duration: 44.012795 / 196.684377      [RUNNING]  Bag Time: 1650729895.734327   Duration: 44.028876 / 196.684377      [RUNNING]  Bag Time: 1650729895.750469   Duration: 44.045019 / 196.684377      [RUNNING]  Bag Time: 1650729895.765764   Duration: 44.060313 / 196.684377      [RUNNING]  Bag Time: 1650729895.781830   Duration: 44.076379 / 196.684377      [RUNNING]  Bag Time: 1650729895.798067   Duration: 44.092616 / 196.684377      [RUNNING]  Bag Time: 1650729895.814291   Duration: 44.108841 / 196.684377      [RUNNING]  Bag Time: 1650729895.830707   Duration: 44.125257 / 196.684377      [RUNNING]  Bag Time: 1650729895.846096   Duration: 44.140646 / 196.684377      [RUNNING]  Bag Time: 1650729895.862483   Duration: 44.157032 / 196.684377      [RUNNING]  Bag Time: 1650729895.878717   Duration: 44.173267 / 196.684377      [RUNNING]  Bag Time: 1650729895.894005   Duration: 44.188554 / 196.684377      [RUNNING]  Bag Time: 1650729895.910806   Duration: 44.205355 / 196.684377      [RUNNING]  Bag Time: 1650729895.926196   Duration: 44.220745 / 196.684377      [RUNNING]  Bag Time: 1650729895.942300   Duration: 44.236849 / 196.684377      [RUNNING]  Bag Time: 1650729895.958410   Duration: 44.252959 / 196.684377      [RUNNING]  Bag Time: 1650729895.974725   Duration: 44.269274 / 196.684377      [RUNNING]  Bag Time: 1650729895.989861   Duration: 44.284411 / 196.684377      [RUNNING]  Bag Time: 1650729896.006621   Duration: 44.301170 / 196.684377      [RUNNING]  Bag Time: 1650729896.022285   Duration: 44.316834 / 196.684377      [RUNNING]  Bag Time: 1650729896.038849   Duration: 44.333398 / 196.684377      [RUNNING]  Bag Time: 1650729896.054636   Duration: 44.349185 / 196.684377      [RUNNING]  Bag Time: 1650729896.069860   Duration: 44.364409 / 196.684377      [RUNNING]  Bag Time: 1650729896.085850   Duration: 44.380399 / 196.684377      [RUNNING]  Bag Time: 1650729896.102049   Duration: 44.396599 / 196.684377      [RUNNING]  Bag Time: 1650729896.118315   Duration: 44.412865 / 196.684377      [RUNNING]  Bag Time: 1650729896.134412   Duration: 44.428961 / 196.684377      [RUNNING]  Bag Time: 1650729896.150559   Duration: 44.445109 / 196.684377      [RUNNING]  Bag Time: 1650729896.165725   Duration: 44.460275 / 196.684377      [RUNNING]  Bag Time: 1650729896.181690   Duration: 44.476239 / 196.684377      [RUNNING]  Bag Time: 1650729896.197800   Duration: 44.492350 / 196.684377      [RUNNING]  Bag Time: 1650729896.213958   Duration: 44.508508 / 196.684377      [RUNNING]  Bag Time: 1650729896.230170   Duration: 44.524720 / 196.684377      [RUNNING]  Bag Time: 1650729896.246123   Duration: 44.540673 / 196.684377      [RUNNING]  Bag Time: 1650729896.262216   Duration: 44.556765 / 196.684377      [RUNNING]  Bag Time: 1650729896.278279   Duration: 44.572828 / 196.684377      [RUNNING]  Bag Time: 1650729896.294429   Duration: 44.588979 / 196.684377      [RUNNING]  Bag Time: 1650729896.309524   Duration: 44.604073 / 196.684377      [RUNNING]  Bag Time: 1650729896.325691   Duration: 44.620241 / 196.684377      [RUNNING]  Bag Time: 1650729896.341984   Duration: 44.636534 / 196.684377      [RUNNING]  Bag Time: 1650729896.358541   Duration: 44.653090 / 196.684377      [RUNNING]  Bag Time: 1650729896.374414   Duration: 44.668963 / 196.684377      [RUNNING]  Bag Time: 1650729896.390692   Duration: 44.685241 / 196.684377      [RUNNING]  Bag Time: 1650729896.405976   Duration: 44.700525 / 196.684377      [RUNNING]  Bag Time: 1650729896.422153   Duration: 44.716702 / 196.684377      [RUNNING]  Bag Time: 1650729896.438461   Duration: 44.733010 / 196.684377      [RUNNING]  Bag Time: 1650729896.454712   Duration: 44.749262 / 196.684377      [RUNNING]  Bag Time: 1650729896.470095   Duration: 44.764644 / 196.684377      [RUNNING]  Bag Time: 1650729896.486190   Duration: 44.780740 / 196.684377      [RUNNING]  Bag Time: 1650729896.502561   Duration: 44.797110 / 196.684377     
+
+
+
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~$ roscd
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ roswtf
+the rosdep view is empty: call 'sudo rosdep init' and 'rosdep update'
+No package or stack in the current directory
+================================================================================
+Static checks summary:
+
+Found 1 error(s).
+
+ERROR ROS Dep database not updated: Please update rosdep database with 'rosdep update'.
+================================================================================
+
+ROS Master does not appear to be running.
+Online graph checks will not be run.
+ROS_MASTER_URI is [http://localhost:11311]
+
+
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ roscore
+... logging to /home/dx/.ros/log/d730238a-c320-11ec-9e5f-974ea72e407d/roslaunch-dx-OMEN-by-HP-Laptop-15-dc1xxx-6343.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://dx-OMEN-by-HP-Laptop-15-dc1xxx:35145/
+ros_comm version 1.15.14
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.15.14
+
+NODES
+
+auto-starting new master
+process[master]: started with pid [6358]
+ROS_MASTER_URI=http://dx-OMEN-by-HP-Laptop-15-dc1xxx:11311/
+
+setting /run_id to d730238a-c320-11ec-9e5f-974ea72e407d
+process[rosout-1]: started with pid [6375]
+started core service [/rosout]
+
+
+x@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ roscd
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ roswtf
+the rosdep view is empty: call 'sudo rosdep init' and 'rosdep update'
+No package or stack in the current directory
+================================================================================
+Static checks summary:
+
+Found 1 error(s).
+
+ERROR ROS Dep database not updated: Please update rosdep database with 'rosdep update'.
+================================================================================
+Beginning tests of your ROS graph. These may take a while...
+analyzing graph...
+... done analyzing graph
+running graph rules...
+... done running graph rules
+
+Online checks summary:
+
+Found 1 warning(s).
+Warnings are things that may be just fine, but are sometimes at fault
+
+WARNING The following node subscriptions are unconnected:
+ * /rosout:
+   * /rosout
+
+
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ roscd
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ ROS_PACKAGE_PATH=bad:$ROS_PACKAGE_PATH roswtf
+the rosdep view is empty: call 'sudo rosdep init' and 'rosdep update'
+No package or stack in the current directory
+================================================================================
+Static checks summary:
+
+Found 2 error(s).
+
+ERROR Not all paths in ROS_PACKAGE_PATH [bad:/home/dx/catkin_ws/src:/opt/ros/noetic/share] point to an existing directory: 
+ * bad
+
+ERROR ROS Dep database not updated: Please update rosdep database with 'rosdep update'.
+================================================================================
+Beginning tests of your ROS graph. These may take a while...
+analyzing graph...
+... done analyzing graph
+running graph rules...
+... done running graph rules
+
+Online checks summary:
+
+Found 1 warning(s).
+Warnings are things that may be just fine, but are sometimes at fault
+
+WARNING The following node subscriptions are unconnected:
+ * /rosout:
+   * /rosout
+
+
+dx@dx-OMEN-by-HP-Laptop-15-dc1xxx:~/catkin_ws/devel$ 
+
+
+
+
